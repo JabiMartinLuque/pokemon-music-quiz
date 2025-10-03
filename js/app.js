@@ -197,7 +197,7 @@ class PokemonMusicQuiz {
     if (this.currentMode === 'daily') {
       this.handleDailyAnswer(isCorrect, game, track);
     } else {
-      this.handleNormalAnswer(isCorrect, game);
+      this.handleNormalAnswer(isCorrect, game, track);
     }
   }
 
@@ -239,12 +239,24 @@ class PokemonMusicQuiz {
     }
   }
 
-  handleNormalAnswer(isCorrect, game) {
+  handleNormalAnswer(isCorrect, game, track) {
     if (this.elements.result) {
       if (isCorrect) {
-        this.elements.result.innerHTML = '<div class="result-correct">¡Correcto! 🎉</div>';
+        this.elements.result.innerHTML = `
+          <div class="result-correct">
+            <h3>¡Correcto! 🎉</h3>
+            <p><strong>${game.name}</strong></p>
+            <p>🎵 ${track.title}</p>
+          </div>
+        `;
       } else {
-        this.elements.result.innerHTML = `<div class="result-incorrect">Incorrecto. Era ${game.name}</div>`;
+        this.elements.result.innerHTML = `
+          <div class="result-incorrect">
+            <h3>Incorrecto ❌</h3>
+            <p>Era: <strong>${game.name}</strong></p>
+            <p>🎵 ${track.title}</p>
+          </div>
+        `;
       }
     }
   }
