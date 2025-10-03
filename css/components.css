@@ -47,6 +47,29 @@
   margin: 25px 0;
 }
 
+/* Favorite Button */
+.favorite-btn {
+  background: linear-gradient(45deg, #FFC107, #FF9800);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.favorite-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+}
+
+.favorite-btn.active {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+}
+
 /* Modern Quiz Option Buttons */
 .quiz-options button {
   background: rgba(255, 255, 255, 0.1) !important;

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/daily.css">
+  <link rel="stylesheet" href="css/auth.css">
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -88,6 +89,43 @@
 
   </div>
 
+  <!-- Auth Modal -->
+  <div id="auth-modal" class="auth-modal">
+    <div class="auth-modal-content">
+      <h2 id="auth-title">Iniciar Sesión</h2>
+      
+      <form id="auth-form" class="auth-form">
+        <input type="email" id="auth-email" class="auth-input" placeholder="Email" required>
+        <input type="password" id="auth-password" class="auth-input" placeholder="Contraseña" required>
+        
+        <div id="auth-message" class="auth-message"></div>
+        
+        <div class="auth-buttons">
+          <button type="submit" id="auth-submit" class="auth-btn primary">Entrar</button>
+          <button type="button" id="auth-cancel" class="auth-btn secondary">Cancelar</button>
+        </div>
+      </form>
+      
+      <div class="auth-toggle">
+        <span id="auth-toggle-text">¿No tienes cuenta?</span>
+        <a id="auth-toggle-link">Regístrate</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Info Bar -->
+  <div id="user-bar" class="user-bar">
+    <span id="user-info">🎵 Modo invitado</span>
+    <button id="login-btn" class="user-btn">Iniciar Sesión</button>
+    <button id="logout-btn" class="user-btn" style="display: none;">Cerrar Sesión</button>
+  </div>
+
+  <!-- User Stats -->
+  <div id="user-stats" class="user-stats"></div>
+
+  <!-- Environment Configuration -->
+  <script src="./js/env-loader.js"></script>
+
   <!-- JavaScript Modules -->
   <script type="module">
     import { PokemonMusicQuiz } from './js/app.js';
@@ -96,6 +134,9 @@
     document.addEventListener('DOMContentLoaded', () => {
       const app = new PokemonMusicQuiz();
       app.initialize();
+      
+      // Make app globally available for debugging
+      window.app = app;
     });
   </script>
 
