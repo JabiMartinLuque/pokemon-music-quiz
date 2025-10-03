@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokémon Music Quiz</title>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/daily.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="main-body">
+
+  <!-- Main Container -->
+  <div class="main-container">
+    
+    <!-- Header Section -->
+    <header class="main-header">
+      <div class="title-section">
+        <h1 class="main-title">Pokémon Music Quiz</h1>
+        <div id="mode-indicator" class="mode-badge">
+          <span class="badge-icon">🎵</span>
+          <span class="badge-text">Modo Normal</span>
+        </div>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="main-nav">
+        <button id="normal-mode-btn" class="nav-btn active">
+          <span class="btn-icon">🎵</span>
+          <span class="btn-text">Modo Normal</span>
+        </button>
+        <button id="daily-mode-btn" class="nav-btn">
+          <span class="btn-icon">🎯</span>
+          <span class="btn-text">Daily Challenge</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Daily Streak Section -->
+    <section id="streak-section" class="streak-section">
+      <div class="streak-container">
+        <div class="streak-stats">
+          <div class="stat-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-info">
+              <span class="stat-number" id="current-streak">0</span>
+              <span class="stat-label">Racha Actual</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-info">
+              <span class="stat-number" id="best-streak">0</span>
+              <span class="stat-label">Mejor Racha</span>
+            </div>
+          </div>
+        </div>
+        <div id="daily-status" class="daily-status"></div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <main class="quiz-section">
+      <div class="quiz-card">
+        <div class="challenge-info">
+          <h2 class="challenge-title">¡A Jugar!</h2>
+          <p class="challenge-subtitle">Escucha el track y adivina de qué juego proviene</p>
+        </div>
+        
+        <div class="audio-section">
+          <audio id="track" controls class="audio-player"></audio>
+        </div>
+        
+        <div id="options" class="quiz-options"></div>
+        <div id="result" class="quiz-result"></div>
+        
+        <button id="next-track-btn" class="action-btn">
+          <span class="btn-icon">⏭️</span>
+          <span class="btn-text">Siguiente Track</span>
+        </button>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module">
+    import { PokemonMusicQuiz } from './js/app.js';
+    
+    // Initialize the app when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      const app = new PokemonMusicQuiz();
+      app.initialize();
+    });
+  </script>
+
+</body>
+</html>
